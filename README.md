@@ -19,6 +19,8 @@
 
 
 ### Basic files
+> $ vi .gitignore
+
 > $ vi .babelrc
 
 > $ vi .eslintrc.json
