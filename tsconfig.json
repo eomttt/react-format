@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+     "allowJs": true,
+     "esModuleInterop": true,
+     "sourceMap": true,
+     "noImplicitAny": true,
+     "moduleResolution": "node",
+     "module": "commonjs",
+     "target": "es6",
+     "jsx": "react",
+     "outDir": "build",
+     "baseUrl": "src",
+     "lib": [
+       "dom",
+       "esnext"
+     ],
+     "paths": {
+       "pages/*": ["pages/*"],
+       "components/*": ["components/*"],
+       "constants/*": ["constants/*"],
+       "containers/*": ["containers/*"],
+       "styles/*": ["styles/*"],
+       "interfaces/*": ["interfaces/*"],
+       "dummy/*": ["dummy/*"]
+     }
+   },
+   "exclude": [
+     "node_modules"
+   ]
+ }

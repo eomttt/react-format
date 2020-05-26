@@ -28,3 +28,11 @@
 > $ vi .prettierrc
 
 > $ vi webpack.config.js
+
+### For Typescript
+> $ yarn add typescript ts-loader --dev
+
+> $ yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser --dev
+
+### Typescript file
+> $ vi tsconfig.json
