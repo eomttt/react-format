@@ -15,12 +15,26 @@ copyWebpackConfig="cp `dirname "$0"`/webpack.config.js `pwd`/webpack.config.js"
 
 copySrcDir="cp -r `dirname "$0"`/src `pwd`/src"
 
+installTypescript="yarn add typescript ts-loader @typescript-eslint/eslint-plugin @typescript-eslint/parser --dev"
+copyTsconfig="cp `dirname "$0"`/tsconfig.json `pwd`/tsconfig.json"
+
+echo "Install dependecies modules"
+$installDependencies
+$installDevDependencies
+$installBabelDependencies
+$installEslintDependencies
+
 echo "CP project files"
 $copyBabelrc
 $copyEslintrc
 $copyPrettierrc
 $copyGitignore
 $copyWebpackConfig
+
+if [ "$1" = "typescript" ]; then
+  $installTypescript
+  $copyTsconfig
+fi
 
 echo "CP src Directory"
 $copySrcDir
