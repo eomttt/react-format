@@ -13,10 +13,26 @@ copyPrettierrc="cp `dirname "$0"`/.prettierrc `pwd`/.prettierrc"
 copyGitignore="cp `dirname "$0"`/.gitignore `pwd`/.gitignore"
 copyWebpackConfig="cp `dirname "$0"`/webpack.config.js `pwd`/webpack.config.js"
 
-copySrcDir="cp -r `dirname "$0"`/src `pwd`/src"
+makeSrcDir="mkdir `pwd`/src"
 
-installTypescript="yarn add typescript ts-loader @typescript-eslint/eslint-plugin @typescript-eslint/parser --dev"
-copyTsconfig="cp `dirname "$0"`/tsconfig.json `pwd`/tsconfig.json"
+makeApp="touch `pwd`/src/App.jsx"
+makeIndex="touch `pwd`/src/index.jsx"
+
+makeAppTS="touch `pwd`/src/App.tsx"
+makeIndexTS="touch `pwd`/src/index.tsx"
+
+makeHTML="touch `pwd`/src/index.html"
+
+copyApp="cp -r `dirname "$0"`/src/js/App.jsx `pwd`/src/App.jsx"
+copyIndex="cp -r `dirname "$0"`/src/js/index.jsx `pwd`/src/App.jsx"
+
+copyIndexHtml="cp -r `dirname "$0"`/src/index.html `pwd`/src/index.html"
+
+installTypescript="yarn add typescript ts-loader @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/react @types/react-dom --dev"
+copyTSconfig="cp `dirname "$0"`/tsconfig.json `pwd`/tsconfig.json"
+copyWebpackConfig="cp `dirname "$0"`/webpack-ts.config.js `pwd`/webpack.config.js"
+copyAppTS="cp -r `dirname "$0"`/src/ts/App.tsx `pwd`/src/App.tsx"
+copyIndexTS="cp -r `dirname "$0"`/src/ts/index.tsx `pwd`/src/index.tsx"
 
 echo "Install dependecies modules"
 $installDependencies
@@ -36,7 +52,24 @@ if [ "$1" = "typescript" ]; then
   $copyTsconfig
 fi
 
+
 echo "CP src Directory"
-$copySrcDir
+
+$makeSrcDir
+$makeHTML
+$copyIndexHtml
+
+if [ "$1" = "typescript" ]; then
+  $makeAppTS
+  $makeIndexTS
+  $copyAppTS
+  $copyIndexTS
+else
+  $makeApp
+  $makeIndex
+  $copyApp
+  $copyIndex
+fi
+
 
 exit

@@ -14,15 +14,6 @@
        "dom",
        "esnext"
      ],
-     "paths": {
-       "pages/*": ["pages/*"],
-       "components/*": ["components/*"],
-       "constants/*": ["constants/*"],
-       "containers/*": ["containers/*"],
-       "styles/*": ["styles/*"],
-       "interfaces/*": ["interfaces/*"],
-       "dummy/*": ["dummy/*"]
-     }
    },
    "exclude": [
      "node_modules"
