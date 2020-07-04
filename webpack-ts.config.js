@@ -8,24 +8,20 @@ const config = {
   mode: process.env.NODE_ENV,
   devtool: isDev ? 'eval' : 'source-map',
   entry: {
-    app: './src/index.jsx',
+    app: './src/index.tsx',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.tsx', '.ts', '.json'],
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     symlinks: false,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         use: ['babel-loader'],
         exclude: [/node_modules/],
-      },{
-        test: /\.(ts|tsx)$/,
-        use: ['ts-loader'],
-        exclude: [/node_modules/],
-      }
+      },
     ],
   },
   plugins: [

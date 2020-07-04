@@ -30,7 +30,7 @@
 > $ vi webpack.config.js
 
 ### For Typescript
-> $ yarn add typescript ts-loader --dev
+> $ yarn add typescript @babel/preset-typescript --dev
 
 > $ yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser --dev
 

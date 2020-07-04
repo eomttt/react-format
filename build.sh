@@ -2,6 +2,8 @@
 
 echo "Build Custom React Project"
 
+init="yarn init"
+
 installDependencies="yarn add react react-dom cross-env"
 installDevDependencies="yarn add webpack webpack-cli webpack-dev-server html-webpack-plugin terser-webpack-plugin --dev"
 installBabelDependencies="yarn add @babel/core @babel/preset-env @babel/preset-react babel-loader babel-plugin-module-resolver --dev"
@@ -28,11 +30,13 @@ copyIndex="cp -r `dirname "$0"`/src/js/index.jsx `pwd`/src/App.jsx"
 
 copyIndexHtml="cp -r `dirname "$0"`/src/index.html `pwd`/src/index.html"
 
-installTypescript="yarn add typescript ts-loader @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/react @types/react-dom --dev"
+installTypescript="yarn add typescript @babel/preset-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/react @types/react-dom --dev"
 copyTSconfig="cp `dirname "$0"`/tsconfig.json `pwd`/tsconfig.json"
 copyWebpackConfig="cp `dirname "$0"`/webpack-ts.config.js `pwd`/webpack.config.js"
 copyAppTS="cp -r `dirname "$0"`/src/ts/App.tsx `pwd`/src/App.tsx"
 copyIndexTS="cp -r `dirname "$0"`/src/ts/index.tsx `pwd`/src/index.tsx"
+
+$init
 
 echo "Install dependecies modules"
 $installDependencies
