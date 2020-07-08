@@ -36,3 +36,6 @@
 
 ### Typescript file
 > $ vi tsconfig.json
+
+### pacakge.json scripts 는 프로젝트 내 scripts를 참조해주세요.
+webpack build, webpack watch 등
