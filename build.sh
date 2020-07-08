@@ -2,7 +2,7 @@
 
 echo "Build Custom React Project"
 
-init="yarn init"
+init="npm init"
 
 installDependencies="yarn add react react-dom cross-env"
 installDevDependencies="yarn add webpack webpack-cli webpack-dev-server html-webpack-plugin terser-webpack-plugin --dev"
