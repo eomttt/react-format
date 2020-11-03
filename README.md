@@ -1,5 +1,7 @@
 # Custom React project format
 
+### [Version](https://github.com/eomttt/react-format/VERSION.md)
+
 ### Basic modules
 > $ yarn add react react-dom
 
