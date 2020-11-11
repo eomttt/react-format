@@ -32,9 +32,9 @@ copyIndexHtml="cp -r `dirname "$0"`/src/index.html `pwd`/src/index.html"
 
 installTypescript="yarn add typescript@^3.8.3 @babel/preset-typescript@^7.10.4 @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/react@^16.9.34 @types/react-dom@^16.9.7 --dev"
 copyTSconfig="cp `dirname "$0"`/tsconfig.json `pwd`/tsconfig.json"
-copyWebpackConfig="cp `dirname "$0"`/webpack-ts.config.js `pwd`/webpack.config.js"
 copyAppTS="cp -r `dirname "$0"`/src/ts/App.tsx `pwd`/src/App.tsx"
 copyIndexTS="cp -r `dirname "$0"`/src/ts/index.tsx `pwd`/src/index.tsx"
+copyTSWebpackConfig="cp `dirname "$0"`/webpack-ts.config.js `pwd`/webpack.config.js"
 
 $init
 
@@ -49,12 +49,14 @@ $copyBabelrc
 $copyEslintrc
 $copyPrettierrc
 $copyGitignore
-$copyWebpackConfig
 
-if [ "$1" = "typescript" ]; then
-  $installTypescript
-  $copyTSconfig
-fi
+$installTypescript
+$copyTSconfig
+
+# if [ "$1" = "typescript" ]; then
+#   $installTypescript
+#   $copyTSconfig
+# fi
 
 
 echo "CP src Directory"
@@ -63,17 +65,25 @@ $makeSrcDir
 $makeHTML
 $copyIndexHtml
 
-if [ "$1" = "typescript" ]; then
-  $makeAppTS
-  $makeIndexTS
-  $copyAppTS
-  $copyIndexTS
-else
-  $makeApp
-  $makeIndex
-  $copyApp
-  $copyIndex
-fi
+$makeAppTS
+$makeIndexTS
+$copyAppTS
+$copyIndexTS
+$copyTSWebpackConfig
+
+# if [ "$1" = "typescript" ]; then
+#   $makeAppTS
+#   $makeIndexTS
+#   $copyAppTS
+#   $copyIndexTS
+#   $copyTSWebpackConfig
+# else
+#   $makeApp
+#   $makeIndex
+#   $copyApp
+#   $copyIndex
+#   $copyWebpackConfig
+# fi
 
 
 exit
