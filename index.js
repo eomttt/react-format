@@ -8,6 +8,9 @@ const { writeGitignore } = require('./writeGitignore.js');
 const { writeEslintrc } = require('./writeEslintrc.js');
 const { writePrettier } = require('./writePrettier.js');
 const { writeTSConfig } = require('./writeTsConfig.js');
+const { writeIndexHtml } = require('./writeIndexHtml.js');
+const { writeIndex } = require('./writeIndex.js');
+const { writeApp } = require('./writeApp.js');
 
 shell.echo('hello world');
 
@@ -45,16 +48,13 @@ async function inquirered(projectName) {
   shell.exec(`${addCommand} eslint eslint-config-airbnb eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react --dev`,  { cwd: `./${projectName}` });
   shell.exec(`${addCommand} prettier --dev`,  { cwd: `./${projectName}` });
 
-  shell.exec('touch .gitignore', { cwd: `./${projectName}` });
-  shell.exec('touch .babelrc', { cwd: `./${projectName}` });
-  shell.exec('touch .eslintrc.json', { cwd: `./${projectName}` });
-  shell.exec('touch .prettierrc', { cwd: `./${projectName}` });
-  shell.exec('touch webpack.config.js', { cwd: `./${projectName}` });
+  writeIndexHtml();
+  writeIndex(isTypeScript);
+  writeApp(isTypeScript);
 
   if (isTypeScript) {
     shell.exec(`${addCommand} typescript @babel/preset-typescript --dev`,  { cwd: `./${projectName}` });
     shell.exec(`${addCommand} @typescript-eslint/eslint-plugin @typescript-eslint/parser --dev`,  { cwd: `./${projectName}` });
-    shell.exec('touch tsconfig.json', { cwd: `./${projectName}` });
     writeTSConfig(projectName);
   }
 
