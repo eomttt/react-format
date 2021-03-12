@@ -12,6 +12,7 @@ const { writeIndexHtml } = require('./writeIndexHtml.js');
 const { writeIndex } = require('./writeIndex.js');
 const { writeApp } = require('./writeApp.js');
 const { updatePackageScript } = require('./updatePackage.js');
+const { getInstallModules } = require('./version.js');
 
 shell.echo('hello world');
 
@@ -38,26 +39,29 @@ async function inquirered(projectName) {
     choices: ['npm', 'yarn'],
   }]);
 
+  const { version } = await inquirer.prompt([{
+    type: 'list',
+    name: 'version',
+    message: 'Select Version',
+    choices: ['1.0.0'],
+  }]);
+
   const addCommand = command === 'npm' ? 'npm install' : 'yarn add';
   const isTypeScript = language === 'TypeScript';
 
+  const { install, installDev } = getInstallModules(version, isTypeScript);
   shell.exec(`mkdir ${projectName}`);
   shell.exec(`mkdir ./${projectName}/src`);
   shell.exec('npm init -y', { cwd: `./${projectName}` });
 
-  shell.exec(`${addCommand} react react-dom cross-env`, { cwd: `./${projectName}` });
-  shell.exec(`${addCommand} webpack webpack-cli webpack-dev-server html-webpack-plugin terser-webpack-plugin --dev`,  { cwd: `./${projectName}` });
-  shell.exec(`${addCommand} @babel/core @babel/preset-env @babel/preset-react babel-loader babel-plugin-module-resolver --dev`,  { cwd: `./${projectName}` });
-  shell.exec(`${addCommand} eslint eslint-config-airbnb eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react --dev`,  { cwd: `./${projectName}` });
-  shell.exec(`${addCommand} prettier eslint-config-prettier --dev`,  { cwd: `./${projectName}` });
+  shell.exec(`${addCommand} ${install}`, { cwd: `./${projectName}` });
+  shell.exec(`${addCommand} ${installDev} --dev`, { cwd: `./${projectName}` });
 
   writeIndexHtml(projectName);
   writeIndex(projectName, isTypeScript);
   writeApp(projectName, isTypeScript);
 
   if (isTypeScript) {
-    shell.exec(`${addCommand} typescript @babel/preset-typescript --dev`,  { cwd: `./${projectName}` });
-    shell.exec(`${addCommand} @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/react @types/react-dom --dev`,  { cwd: `./${projectName}` });
     writeTSConfig(projectName);
   }
 
