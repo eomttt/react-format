@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+const getIndexHtml = () => `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,3 +12,8 @@
     <div id="root"></div>
   </body>
 </html>
+`;
+
+module.exports.writeIndexHtml = function (projectName) {
+  fs.writeFileSync(`./${projectName}/src/index.html`, getIndexHtml(), 'utf8');
+}

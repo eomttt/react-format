@@ -1,3 +1,7 @@
+const fs = require('fs');
+
+const getEslintrc = (isTypeSciprt) => `
+
 {
   "env": {
     "browser": true,
@@ -11,7 +15,7 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "parser": "@typescript-eslint/parser",
+  ${isTypeSciprt ? '"parser": "@typescript-eslint/parser",' : ''}
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,16 +23,18 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
+  "plugins": ${isTypeSciprt ? `[
     "react",
     "prettier",
     "@typescript-eslint"
-  ],
+  ]` : `[
+    "react",
+    "prettier",
+  ]`},
   "settings": {
-    "babel-module": {},
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "extensions": ${isTypeSciprt ? `[".js", ".jsx", ".ts", ".tsx"]` : `[".js", ".jsx"]`},
         "paths": ["src"]
       }
     }
@@ -36,7 +42,7 @@
   "rules": {
     "prettier/prettier": ["error"],
     "react/jsx-filename-extension": [1, {
-      "extensions": ["jsx", "tsx"]
+      ${isTypeSciprt ? `"extensions": ["jsx", "tsx"]` : `"extensions": ["jsx"]`}
     }],
     "import/extensions": ["error", "ignorePackages", {
       "js": "never",
@@ -44,16 +50,16 @@
       "ts": "never",
       "tsx": "never"
     }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "import/prefer-default-export": "off",
-    "import/no-unresolved": "off",
     "react/prop-types": "off",
-    "no-unused-vars": [
-      "warn",
-      { 
-        "vars": "all",
-        "varsIgnorePattern": "[I]\\w+"
-      }
-    ],
     "arrow-parens": "off"
   }
+}
+
+`;
+
+module.exports.writeEslintrc = function (projectName, isTypeSciprt) {
+  fs.writeFileSync(`./${projectName}/.eslintrc.json`, getEslintrc(isTypeSciprt), 'utf8');
 }
