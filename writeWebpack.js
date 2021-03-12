@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+const getWebpackConfig = (isTypeSciprt) => `
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
@@ -8,17 +11,17 @@ const config = {
   mode: process.env.NODE_ENV,
   devtool: isDev ? 'eval' : 'source-map',
   entry: {
-    app: './src/index.jsx',
+    app: './src/index.${isTypeSciprt ? 'tsx' : 'jsx'}',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.tsx', '.ts', '.json'],
+    extensions: ${isTypeSciprt ? "['.jsx', '.js', '.tsx', 'ts']" : "['.jsx', '.js']"},
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     symlinks: false,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: ${isTypeSciprt ? /\.(js|jsx|ts|tsx)$/ : /\.(js|jsx)$/},
         use: ['babel-loader'],
         exclude: [/node_modules/],
       }
@@ -58,3 +61,8 @@ const config = {
 };
 
 module.exports = config;
+`;
+
+module.exports.writeWebpack = function (projectName, isTypeSciprt) {
+  fs.writeFileSync(`./${projectName}/webpack.config.js`, getWebpackConfig(isTypeSciprt), 'utf8');
+}

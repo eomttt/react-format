@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+const getTSConfig = () => `
 {
   "compilerOptions": {
      "allowJs": true,
@@ -19,3 +22,8 @@
      "node_modules"
    ]
  }
+`;
+
+module.exports.writeTSConfig = function (projectName) {
+  fs.writeFileSync(`./${projectName}/tsconfig.json`, getTSConfig(), 'utf8');
+}
