@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const getEslintrc = (isTypeSciprt) => `
+
 {
   "env": {
     "browser": true,
@@ -49,12 +50,14 @@ const getEslintrc = (isTypeSciprt) => `
       "ts": "never",
       "tsx": "never"
     }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "import/prefer-default-export": "off",
-    "import/no-unresolved": "off",
     "react/prop-types": "off",
     "arrow-parens": "off"
   }
 }
+
 `;
 
 module.exports.writeEslintrc = function (projectName, isTypeSciprt) {

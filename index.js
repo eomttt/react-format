@@ -47,7 +47,7 @@ async function inquirered(projectName) {
   shell.exec(`${addCommand} webpack webpack-cli webpack-dev-server html-webpack-plugin terser-webpack-plugin --dev`,  { cwd: `./${projectName}` });
   shell.exec(`${addCommand} @babel/core @babel/preset-env @babel/preset-react babel-loader babel-plugin-module-resolver --dev`,  { cwd: `./${projectName}` });
   shell.exec(`${addCommand} eslint eslint-config-airbnb eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react --dev`,  { cwd: `./${projectName}` });
-  shell.exec(`${addCommand} prettier --dev`,  { cwd: `./${projectName}` });
+  shell.exec(`${addCommand} prettier eslint-config-prettier --dev`,  { cwd: `./${projectName}` });
 
   writeIndexHtml(projectName);
   writeIndex(projectName, isTypeScript);
