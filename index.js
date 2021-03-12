@@ -33,7 +33,7 @@ async function inquirered(projectName) {
   const { command } = await inquirer.prompt([{
     type: 'list',
     name: 'command',
-    message: 'Set Language',
+    message: 'Set Command',
     choices: ['npm', 'yarn'],
   }]);
 
@@ -41,6 +41,7 @@ async function inquirered(projectName) {
   const isTypeScript = language === 'TypeScript';
 
   shell.exec(`mkdir ${projectName}`);
+  shell.exec(`mkdir ./${projectName}/src`);
   shell.exec('npm init -y', { cwd: `./${projectName}` });
   shell.exec(`${addCommand} react react-dom cross-env`, { cwd: `./${projectName}` });
   shell.exec(`${addCommand} webpack webpack-cli webpack-dev-server html-webpack-plugin terser-webpack-plugin --dev`,  { cwd: `./${projectName}` });
@@ -48,13 +49,13 @@ async function inquirered(projectName) {
   shell.exec(`${addCommand} eslint eslint-config-airbnb eslint-import-resolver-babel-module eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react --dev`,  { cwd: `./${projectName}` });
   shell.exec(`${addCommand} prettier --dev`,  { cwd: `./${projectName}` });
 
-  writeIndexHtml();
-  writeIndex(isTypeScript);
-  writeApp(isTypeScript);
+  writeIndexHtml(projectName);
+  writeIndex(projectName, isTypeScript);
+  writeApp(projectName, isTypeScript);
 
   if (isTypeScript) {
     shell.exec(`${addCommand} typescript @babel/preset-typescript --dev`,  { cwd: `./${projectName}` });
-    shell.exec(`${addCommand} @typescript-eslint/eslint-plugin @typescript-eslint/parser --dev`,  { cwd: `./${projectName}` });
+    shell.exec(`${addCommand} @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/react @types/react-dom --dev`,  { cwd: `./${projectName}` });
     writeTSConfig(projectName);
   }
 
