@@ -24,5 +24,8 @@
     "commander": "^7.1.0",
     "inquirer": "^8.0.0",
     "shelljs": "^0.8.4"
-  }
+  },
+  "keywords": [
+    "react", "create react app", "create-simple-reactapp", "create-react-app", "react app", "react-app"
+  ]
 }
