@@ -15,6 +15,7 @@ const VERSION = {
     'babel-plugin-module-resolver': '@^4.1.0',
     'eslint': '@^7.21.0',
     'eslint-config-airbnb': '@^18.2.1',
+    'eslint-plugin-jsx-a11y': '@^6.4.1',
     'eslint-plugin-import': '@^2.22.1',
     'eslint-import-resolver-babel-module': '@^5.2.0',
     'eslint-plugin-prettier': '@^3.3.1',
