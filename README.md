@@ -43,7 +43,7 @@
 webpack build, webpack watch 등
 ```js
   "scripts": {
-    "dev": "NODE_ENV=development webpack serve --mode development --open",
+    "dev": "cross-env NODE_ENV=development webpack serve --mode development --open",
     "build": "cross-env NODE_ENV=production webpack --mode production"
   },
 ```

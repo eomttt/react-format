@@ -3,13 +3,10 @@ const fs = require('fs');
 const getApp = () => `
 import React from 'react';
 
-const App = () => (
-  <>
-  React Format
-  </>
-);
+const App = () => <>React Format</>;
 
 export default App;
+
 `;
 
 module.exports.writeApp = function (projectName, isTypeSciprt) {

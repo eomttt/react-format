@@ -11,6 +11,7 @@ const { writeTSConfig } = require('./writeTsConfig.js');
 const { writeIndexHtml } = require('./writeIndexHtml.js');
 const { writeIndex } = require('./writeIndex.js');
 const { writeApp } = require('./writeApp.js');
+const { updatePackageScript } = require('./updatePackage.js');
 
 shell.echo('hello world');
 
@@ -43,6 +44,7 @@ async function inquirered(projectName) {
   shell.exec(`mkdir ${projectName}`);
   shell.exec(`mkdir ./${projectName}/src`);
   shell.exec('npm init -y', { cwd: `./${projectName}` });
+
   shell.exec(`${addCommand} react react-dom cross-env`, { cwd: `./${projectName}` });
   shell.exec(`${addCommand} webpack webpack-cli webpack-dev-server html-webpack-plugin terser-webpack-plugin --dev`,  { cwd: `./${projectName}` });
   shell.exec(`${addCommand} @babel/core @babel/preset-env @babel/preset-react babel-loader babel-plugin-module-resolver --dev`,  { cwd: `./${projectName}` });
@@ -64,4 +66,5 @@ async function inquirered(projectName) {
   writeBabelrc(projectName, isTypeScript);
   writeEslintrc(projectName, isTypeScript);
   writePrettier(projectName);
+  updatePackageScript(projectName);
 }
