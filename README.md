@@ -1,14 +1,20 @@
 # Custom React project format
 
-## Installation
+## Usage
 ```sh
 $ npm i -g gen-simple-reactapp
 ```
-
-## Usage
 ```sh
 $ gen-simple-reactapp <projectName>
 ```
+
+or
+
+```sh
+$ npx gen-simple-reactapp <projectName>
+```
+
+
 
 ### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)
 
