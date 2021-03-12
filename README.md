@@ -41,3 +41,9 @@
 
 ### pacakge.json scripts 는 프로젝트 내 scripts를 참조해주세요.
 webpack build, webpack watch 등
+```js
+  "scripts": {
+    "dev": "NODE_ENV=development webpack serve --mode development --open",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
+  },
+```
