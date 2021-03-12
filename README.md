@@ -2,12 +2,12 @@
 
 ## Installation
 ```sh
-$ npm i -g @eomttt/create-react-app
+$ npm i -g gen-simple-reactapp
 ```
 
 ## Usage
 ```sh
-$ create-reactapp <projectName>
+$ gen-simple-reactapp <projectName>
 ```
 
 ### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)
