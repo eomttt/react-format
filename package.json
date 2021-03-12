@@ -1,10 +1,10 @@
 {
-  "name": "@eomttt/create-react-app",
-  "version": "1.0.1",
+  "name": "gen-simple-reactapp",
+  "version": "1.0.2",
   "description": "### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)",
   "main": "index.js",
   "bin": {
-    "create-reactapp": "index.js"
+    "gen-simple-reactapp": "index.js"
   },
   "repository": {
     "type": "git",
