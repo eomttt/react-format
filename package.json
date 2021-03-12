@@ -1,23 +1,17 @@
 {
-  "name": "create-simple-reactapp",
+  "name": "@eomttt/create-react-app",
   "version": "1.0.0",
   "description": "### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)",
   "main": "index.js",
   "bin": {
-    "create-simple-reactapp": "index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create-reactapp": "index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eomttt/react-format.git"
   },
-  "author": "",
+  "author": "eomttt",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eomttt/react-format/issues"
-  },
   "homepage": "https://github.com/eomttt/react-format#readme",
   "dependencies": {
     "chalk": "^4.1.0",
@@ -26,6 +20,11 @@
     "shelljs": "^0.8.4"
   },
   "keywords": [
-    "react", "create react app", "create-simple-reactapp", "create-react-app", "react app", "react-app"
+    "react",
+    "create react app",
+    "create-simple-reactapp",
+    "create-react-app",
+    "react app",
+    "react-app"
   ]
 }
