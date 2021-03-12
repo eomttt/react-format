@@ -1,5 +1,11 @@
 # Custom React project format
 
+## Installation
+> $ npm i -g @eomttt/create-react-app
+
+## Usage
+> $ create-reactapp <${projectName}>
+
 ### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)
 
 ### Basic modules
