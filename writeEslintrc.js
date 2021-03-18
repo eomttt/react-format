@@ -61,5 +61,5 @@ const getEslintrc = (isTypeSciprt) => `
 `;
 
 module.exports.writeEslintrc = function (projectName, isTypeSciprt) {
-  fs.writeFileSync(`./${projectName}/.eslintrc.json`, getEslintrc(isTypeSciprt), 'utf8');
+  fs.writeFileSync(`./${projectName}/.eslintrc`, getEslintrc(isTypeSciprt), 'utf8');
 }
