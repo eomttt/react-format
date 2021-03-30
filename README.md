@@ -65,4 +65,4 @@ webpack build, webpack watch 등
 ```
 
 ## Version Release Alarm
-[release] (https://newreleases.io/projects)
+[release](https://newreleases.io/projects)
