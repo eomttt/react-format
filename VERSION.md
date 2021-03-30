@@ -10,7 +10,7 @@ html-webpack-plugin: ^5.3.1
 terser-webpack-plugin: ^5.1.1
 ## babel
 @babel/core: ^7.13.10
-@bable/preset-env: ^7.13.10
+@babel/preset-env: ^7.13.10
 @babel/preset-react: ^7.12.13
 babel-loader: ^8.2.2
 babel-plugin-module-resolver: ^4.1.0
