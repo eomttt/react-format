@@ -27,7 +27,9 @@ $ npx gen-simple-reactapp <projectName>
 
 > $ yarn add html-webpack-plugin terser-webpack-plugin --dev
 
-> $ yarn add @babel/core @babel/preset-env @babel/preset-react --dev
+> $ yarn add @babel/runtime
+
+> $ yarn add @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime --dev
 
 > $ yarn add babel-loader babel-plugin-module-resolver --dev
 
