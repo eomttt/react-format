@@ -43,7 +43,7 @@ async function inquirered(projectName) {
     type: 'list',
     name: 'version',
     message: 'Select Version',
-    choices: ['1.0.0'],
+    choices: ['1.0.0', '1.0.1'],
   }]);
 
   const addCommand = command === 'npm' ? 'npm install' : 'yarn add';
