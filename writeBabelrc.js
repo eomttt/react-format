@@ -8,7 +8,7 @@ const getBabelrc = (isTypeSciprt) => `
     "@babel/preset-typescript"
   ]` : `[
     "@babel/preset-env",
-    "@babel/preset-react",
+    "@babel/preset-react"
   ]`},
   "plugins": [
    [
@@ -16,7 +16,9 @@ const getBabelrc = (isTypeSciprt) => `
      {
        "root": ["./src"]
      }
-   ]
+   ], [
+    "@babel/plugin-transform-runtime"
+    ]
   ]
  }
 `;
