@@ -29,7 +29,7 @@ const VERSION = {
     '@types/react': '@^17.0.3',
     '@types/react-dom': '@^17.0.2',
   },
-  ['1.0.0']: {
+  ['1.0.1']: {
     'react': '@^17.0.1',
     'react-dom': '@^17.0.1',
     'cross-env': '@^7.0.3',
