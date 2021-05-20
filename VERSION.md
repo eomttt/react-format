@@ -50,10 +50,10 @@ webpack-dev-server: ^3.11.2
 html-webpack-plugin: ^5.3.1
 terser-webpack-plugin: ^5.1.1
 ## babel
-@babel/runtime: ^7.14.0
 @babel/core: ^7.13.10
 @babel/preset-env: ^7.13.10
 @babel/preset-react: ^7.12.13
+@babel/runtime: ^7.14.0
 @babel/plugin-transform-runtime: ^7.14.3
 babel-loader: ^8.2.2
 babel-plugin-module-resolver: ^4.1.0
