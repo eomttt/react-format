@@ -95,3 +95,5 @@ module.exports.getInstallModules = function(version, isTypeSciprt) {
     });
   }
 }
+
+module.exports.VERSION = VERSION;

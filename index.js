@@ -12,7 +12,7 @@ const { writeIndexHtml } = require('./writeIndexHtml.js');
 const { writeIndex } = require('./writeIndex.js');
 const { writeApp } = require('./writeApp.js');
 const { updatePackageScript } = require('./updatePackage.js');
-const { getInstallModules } = require('./version.js');
+const { getInstallModules, VERSION } = require('./version.js');
 
 shell.echo('hello world');
 
@@ -43,7 +43,7 @@ async function inquirered(projectName) {
     type: 'list',
     name: 'version',
     message: 'Select Version',
-    choices: ['1.0.0', '1.0.1'],
+    choices: Object.keys(VERSION),
   }]);
 
   const addCommand = command === 'npm' ? 'npm install' : 'yarn add';
