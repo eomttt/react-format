@@ -91,7 +91,7 @@ const VERSION = {
     'typescript': '@^4.4.2',
     '@babel/preset-typescript': '@^7.15.0',
     '@types/react': '@^17.0.20',
-    '@types/react-dom': '@^17.0.20',
+    '@types/react-dom': '@^17.0.9',
   }
 }
 
