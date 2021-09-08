@@ -66,7 +66,7 @@ async function inquirered(projectName) {
   }
 
   writeGitignore(projectName);
-  writeWebpack(projectName, isTypeScript);
+  writeWebpack(projectName, isTypeScript, version);
   writeBabelrc(projectName, isTypeScript);
   writeEslintrc(projectName, isTypeScript);
   writePrettier(projectName);
