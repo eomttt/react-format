@@ -26,7 +26,7 @@ const getEslintrc = (isTypeScript) => `
   ]`},
   "extends": [
     "plugin:react/recommended",
-    ${isTypeScript ? "plugin:@typescript-eslint/recommended" : ''},
+    ${isTypeScript ? '"plugin:@typescript-eslint/recommended"' : ''},
     "plugin:prettier/recommended"
   ],
   "rules": {}

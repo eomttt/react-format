@@ -2,11 +2,11 @@ const fs = require('fs');
 
 const getApp = () => `import React from 'react';
 
-const App = () => <>React Format</>;
+const App = (): ReactNode => <>React Format</>;;
 
 export default App;
 `;
 
-module.exports.writeApp = function (projectName, isTypeSciprt) {
-  fs.writeFileSync(`./${projectName}/src/App.${isTypeSciprt ? 'tsx' : 'jsx'}`, getApp(), 'utf8');
+module.exports.writeApp = function (projectName, isTypeScript) {
+  fs.writeFileSync(`./${projectName}/src/App.${isTypeScript ? 'tsx' : 'jsx'}`, getApp(), 'utf8');
 }

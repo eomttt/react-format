@@ -5,7 +5,8 @@ module.exports.updatePackageScript = function (projectName) {
   const packageObj = JSON.parse(packageJSON);
   packageObj.scripts = {
     dev: 'cross-env NODE_ENV=development webpack serve --mode development --open',
-    build: 'cross-env NODE_ENV=production webpack --mode production'
+    build: 'cross-env NODE_ENV=production webpack --mode production',
+    lint: 'eslint ./src'
   }
   fs.writeFileSync(`./${projectName}/package.json`, JSON.stringify(packageObj, null, 2), 'utf-8')
 }
