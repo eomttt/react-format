@@ -1,6 +1,6 @@
 {
   "name": "gen-simple-reactapp",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)",
   "main": "index.js",
   "bin": {
