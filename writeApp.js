@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const getApp = () => `import React from 'react';
+const getApp = () => `import React, { ReactNode } from 'react';
 
-const App = (): ReactNode => <>React Format</>;;
+const App = (): ReactNode => <>React Format</>;
 
 export default App;
 `;
