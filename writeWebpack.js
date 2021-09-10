@@ -24,7 +24,7 @@ const getWebpackConfig = (isTypeSciprt, version) => {
       app: './src/index.${isTypeSciprt ? 'tsx' : 'jsx'}',
     },
     resolve: {
-      extensions: ${isTypeSciprt ? "['.jsx', '.js', '.tsx', 'ts']" : "['.jsx', '.js']"},
+      extensions: ${isTypeSciprt ? "['.jsx', '.js', '.tsx', '.ts']" : "['.jsx', '.js']"},
       modules: [path.resolve(__dirname, './src'), 'node_modules'],
       symlinks: false,
     },
