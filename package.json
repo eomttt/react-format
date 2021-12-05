@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/eomttt/react-format.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "author": "eomttt",
   "license": "ISC",
   "homepage": "https://github.com/eomttt/react-format#readme",
