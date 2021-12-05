@@ -1,6 +1,6 @@
 {
   "name": "gen-simple-reactapp",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "### [Version](https://github.com/eomttt/react-format/blob/master/VERSION.md)",
   "main": "index.js",
   "bin": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eomttt/react-format.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "author": "eomttt",
   "license": "ISC",
